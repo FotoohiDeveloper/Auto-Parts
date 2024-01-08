@@ -39,4 +39,14 @@ class ProductController extends Controller
         }
         return redirect()->route('products.list');
     }
+
+    public function showUpdate()
+    {
+        
+    }
+
+    public function update(Request $request)
+    {
+
+    }
 }

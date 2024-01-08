@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <title>کربن تجهیز - داشبورد</title>
+    <title>لوازم یدکی اسما - داشبورد</title>
     @include('panel.layouts.style')
 </head>
 
@@ -44,7 +44,7 @@
                                                 <strong>تایید! </strong> {{ session('success') }}
                                             </div>
                                         @endif
-                                        <form id="formAccountSettings" method="POST" action="{{url("panel/User/$detail->id/Show")}}"
+                                        <form id="formAccountSettings" method="POST" action="{{ route('profile.store') }}"
                                             class="fv-plugins-bootstrap5 fv-plugins-framework" novalidate="novalidate">
                                             @csrf
                                             <div class="row">
@@ -79,9 +79,13 @@
                                                     <label class="form-label" for="phoneNumber">شماره موبایل</label>
                                                     <div class="input-group input-group-merge">
                                                         <span class="input-group-text">IR (+98)</span>
-                                                        <input type="text" id="phoneNumber" name="number"
-                                                            class="form-control" value="{{ $detail->number }}">
+                                                        <input type="text" id="phoneNumber" name="phone_number"
+                                                            class="form-control" value="{{ $detail->phone_number }}">
                                                     </div>
+                                                </div>
+                                                <div class="mb-3 col-md-6">
+                                                    <label for="organization" class="form-label">آدرس</label>
+                                                    <input type="text" class="form-control" id="organization"name="address" value="{{ $detail->address }}">
                                                 </div>
                                                 <div class="mb-3 col-md-6">
                                                     <label for="address" class="form-label">کشور</label>
