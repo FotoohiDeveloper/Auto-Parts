@@ -138,7 +138,7 @@
                 </li>
             </ul>
         </li>
-        @if (auth()->user()->role == 1)
+        @if (checkRole())
             <li class="menu-header small text-uppercase">
                 <span class="menu-header-text">مدیریت</span>
             </li>
