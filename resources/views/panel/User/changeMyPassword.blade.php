@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <title>کربن تجهیز - تغییر کلمه عبور  </title>
+    <title>لوازم یدکی اسما - تغییر کلمه عبور  </title>
     @include('panel.layouts.style')
 </head>
 
@@ -44,7 +44,7 @@
                                                 <strong>تایید! </strong> {{ session('success') }}
                                             </div>
                                         @endif
-                                        <form id="formAccountSettings" method="POST" action="{{url("panel/ChangePassword")}}"
+                                        <form id="formAccountSettings" method="POST" action="{{ route('changepassword.store') }}"
                                             class="fv-plugins-bootstrap5 fv-plugins-framework" novalidate="novalidate">
                                             @csrf
                                             <div class="row">

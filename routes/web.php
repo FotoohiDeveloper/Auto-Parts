@@ -2,9 +2,11 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Panel\PanelController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,8 +20,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Home Routes
 Route::get('/', [HomeController::class, 'show'])->name('home');
 
+// Authentication Routes
 Route::prefix('/authentication')->group(function (){
     Route::get('/login', [LoginController::class, 'show'])->name('login');
     Route::post('/login', [LoginController::class, 'store'])->name('login.store');
@@ -31,7 +35,16 @@ Route::prefix('/authentication')->group(function (){
 Route::middleware('auth')->group(function (){
     Route::prefix('/panel')->group(function (){
         Route::get('/', [PanelController::class, 'show'])->name('panel');
+
+        // Profile routes
+        Route::get('/profile', [ProfileController::class, 'show'])->name('profile');
+        Route::post('/profile', [ProfileController::class, 'store'])->name('profile.store');
+
+        // Change password routes
+        Route::get('/change-password', [PasswordController::class, 'show'])->name('changepassword');
+        Route::post('/change-password', [PasswordController::class, 'store'])->name('changepassword.store');
     });
 
+    // Logout route
     Route::get('/authentication/logout', [LogoutController::class, 'store'])->name('logout');
 });
