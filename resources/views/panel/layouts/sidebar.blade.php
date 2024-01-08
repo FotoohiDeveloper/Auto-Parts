@@ -21,26 +21,16 @@
 
     <ul class="menu-inner py-1 ps ps__rtl">
         <!-- Dashboards -->
-        <li class="menu-item {{ Request::is('Device') ? 'active' : '' }}" style="">
+        <li class="menu-item" style="">
             <a href="" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-smart-home"></i>
                 <div data-i18n="خرید ها">خرید ها</div>
 
             </a>
             <ul class="menu-sub">
-                <li class="menu-item {{ Request::is('CarT') ? 'active' : '' }}">
-                    <a href="{{ url('panel/Device/My') }}" class="menu-link">
-                        <div data-i18n="لیست خرید ها">لیست خرید ها</div>
-                    </a>
-                </li>
-                <li class="menu-item {{ Request::is('Device') ? 'active' : '' }}">
-                    <a href="{{ url('panel/CarT/My') }}" class="menu-link">
-                        <div data-i18n="مدیریت Car-T">مدیریت Car-T</div>
-                    </a>
-                </li>
-                <li class="menu-item {{ Request::is('Device/Add') ? 'active' : '' }}">
-                    <a href="{{ url('panel/Device/My/Add') }}" class="menu-link">
-                        <div data-i18n="افزودن دستگاه">افزودن دستگاه</div>
+                <li class="menu-item">
+                    <a href="{{ route('invoices') }}" class="menu-link">
+                        <div data-i18n="لیست فاکتور ها">لیست فاکتور ها</div>
                     </a>
                 </li>
             </ul>
@@ -64,7 +54,7 @@
                         <div data-i18n="پروفایل">پروفایل</div>
                     </a>
                 </li>
-                <li class="menu-item {{ Request::is('panel/change-password') ? 'active' : '' }}">
+                <li class="menu-item">
                     <a href="{{ route('changepassword') }}" class="menu-link">
                         <div data-i18n="تغییر کلمه عبور">تغییر کلمه عبور</div>
                     </a>
@@ -89,6 +79,13 @@
                     <li class="menu-item">
                         <a href="{{ route('products.list') }}" class="menu-link">
                             <div data-i18n="لیست محصولات">لیست محصولات</div>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="menu-sub">
+                    <li class="menu-item">
+                        <a href="{{ route('products.add') }}" class="menu-link">
+                            <div data-i18n="افزودن محصول">افزودن محصول</div>
                         </a>
                     </li>
                 </ul>

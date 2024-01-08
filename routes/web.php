@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\Panel\PanelController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
@@ -49,6 +50,10 @@ Route::middleware('auth')->group(function (){
         Route::get('/products', [ProductController::class, 'show'])->name('products');
         Route::get('/products/{id}/buy', [ProductController::class, 'showBuy'])->name('products.buy');
         Route::post('/products/{id}/buy', [ProductController::class, 'buy']);
+        Route::get('/success', function (){return view('panel.success');})->name('success');
+
+        // User Invoices
+        Route::get('/invoices', [InvoiceController::class, 'show'])->name('invoices');
 
         // Admin Zone
         Route::middleware('role')->group(function (){
@@ -57,8 +62,8 @@ Route::middleware('auth')->group(function (){
             // Products Routes for ADMIN
             Route::prefix('/products')->group(function (){
                 Route::get('/list', [ProductController::class, 'list'])->name('products.list');
-                Route::get('/add', [ProductController::class, 'showAdd'])->name('products.add');
-                Route::post('/add', [ProductController::class, 'store']);
+                Route::get('/add', [ProductController::class, 'showCreate'])->name('products.add');
+                Route::post('/add', [ProductController::class, 'create']);
                 Route::get('/edit/{id}', [ProductController::class, 'showUpdate'])->name('products.update');
                 Route::post('/edit/{id}', [ProductController::class, 'update']);
                 Route::get('/delete/{id}', [ProductController::class, 'delete'])->name('products.delete');

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <title>کربن تجهیز - اضافه کردن دستگاه</title>
+    <title>لوازم یدکی اسما - بروزرسانی قطعه</title>
     @include('panel.layouts.style')
 </head>
 
@@ -20,13 +20,13 @@
                 <div class="content-wrapper">
                     <div class="container-xxl flex-grow-1 container-p-y">
                         <h4 class="py-3 mb-4">
-                            دستگاه
-                            <span class="text-muted fw-light">/ افزودن دستگاه </span>
+                            قطعه
+                            <span class="text-muted fw-light">/ بروزرسانی قطعه</span>
                         </h4>
                         <div class="row fv-plugins-icon-container">
                             <div class="col-md-12">
                                 <div class="card mb-4">
-                                    <h5 class="card-header">ساخت دستگاه</h5>
+                                    <h5 class="card-header">بروزرسانی قطعه</h5>
                                     <hr class="my-0">
                                     <div class="card-body">
                                         @if (session('errors'))
@@ -44,24 +44,51 @@
                                                 <strong>تایید! </strong> {{ session('success') }}
                                             </div>
                                         @endif
-                                        <form id="formAccountSettings" method="POST" action="{{url("panel/Device/My/Add")}}"
+                                        <form id="formAccountSettings" method="POST" action="{{route('products.update', [$product->id])}}"
                                             class="fv-plugins-bootstrap5 fv-plugins-framework" novalidate="novalidate">
                                             @csrf
                                             <div class="row">
                                                 <div class="mb-3 col-md-6 fv-plugins-icon-container">
-                                                    <label for="firstName" class="form-label">سریال دستگاه</label>
+                                                    <label for="firstName" class="form-label">نام قطعه</label>
                                                     <input class="form-control" type="text" id="firstName"
-                                                        name="serial_number"
-                                                        autofocus="">
+                                                        name="name"
+                                                        autofocus="" value="{{$product->name}}">
                                                     <div
                                                         class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
                                                     </div>
                                                 </div>
                                                 <div class="mb-3 col-md-6 fv-plugins-icon-container">
-                                                    <label for="firstName" class="form-label">رمز دستگاه</label>
+                                                    <label for="firstName" class="form-label">توضیحات قطعه</label>
                                                     <input class="form-control" type="text" id="firstName"
-                                                        name="password"
-                                                        autofocus="">
+                                                        name="description"
+                                                        autofocus="" value="{{$product->description}}">
+                                                    <div
+                                                        class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3 col-md-6 fv-plugins-icon-container">
+                                                    <label for="firstName" class="form-label">قیمت</label>
+                                                    <input class="form-control" type="text" id="firstName"
+                                                        name="price"
+                                                        autofocus="" value="{{$product->price}}">
+                                                    <div
+                                                        class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3 col-md-6 fv-plugins-icon-container">
+                                                    <label for="firstName" class="form-label">برند</label>
+                                                    <input class="form-control" type="text" id="firstName"
+                                                        name="brand"
+                                                        autofocus="" value="{{$product->brand}}">
+                                                    <div
+                                                        class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3 col-md-6 fv-plugins-icon-container">
+                                                    <label for="firstName" class="form-label">رنگ</label>
+                                                    <input class="form-control" type="text" id="firstName"
+                                                        name="color"
+                                                        autofocus="" value="{{$product->color}}">
                                                     <div
                                                         class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
                                                     </div>
@@ -69,7 +96,7 @@
                                             </div>
                                             <div class="mt-2">
                                                 <button type="submit"
-                                                    class="btn btn-primary me-2 waves-effect waves-light">افزودن دستگاه</button>
+                                                    class="btn btn-primary me-2 waves-effect waves-light">بروزرسانی</button>
                                             </div>
                                         </form>
                                     </div>

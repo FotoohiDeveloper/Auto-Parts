@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('user_id');
             $table->integer('product_id');
+            $table->text('user_address')->collation('utf8_general_ci');
             $table->tinyInteger('status')->default(0);
             $table->timestamps();
         });

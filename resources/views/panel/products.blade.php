@@ -24,57 +24,26 @@
                         <h4 class="py-3 mb-4"><span class="text-muted fw-light">محصولات /</span> ثبت سفارش جدید
                         </h4>
                         <div class="row">
-                            <div class="col-lg-3 col-sm-6 mb-4">
-                                <div class="card card-border-shadow-primary h-100">
-                                  <div class="card-body">
-                                    <div class="d-flex align-items-center mb-2 pb-1">
-                                      <div class="avatar me-2">
-                                        <span class="avatar-initial rounded bg-label-primary"><i class="ti ti-truck ti-md"></i></span>
-                                      </div>
-                                      <h4 class="ms-1 mb-0">42</h4>
+                            @foreach ($products as $product)
+                                <div class="col-lg-3 col-sm-6 mb-4">
+                                    <div class="card card-border-shadow-primary h-100">
+                                        <div class="card-body">
+                                            <div class="d-flex align-items-center mb-2 pb-1">
+                                                <div class="avatar me-2">
+                                                    <span class="avatar-initial rounded bg-label-primary"><i
+                                                            class="ti ti-truck ti-md"></i></span>
+                                                </div>
+                                                <a href="{{route('products.buy', [$product->id])}}"><h4 class="ms-1 mb-0">{{$product->name}}</h4></a>
+                                            </div>
+                                            <p class="mb-1">قیمت : {{number_format($product->price)}}</p>
+                                            <p class="mb-0">
+                                                <span class="fw-medium me-1">برند : {{$product->brand}}</span>
+                                                <small class="text-muted">رنگ : {{$product->color}}</small>
+                                            </p>
+                                        </div>
                                     </div>
-                                    <p class="mb-1">On route vehicles</p>
-                                    <p class="mb-0">
-                                      <span class="fw-medium me-1">+18.2%</span>
-                                      <small class="text-muted">than last week</small>
-                                    </p>
-                                  </div>
                                 </div>
-                              </div>
-                              <div class="col-lg-3 col-sm-6 mb-4">
-                                <div class="card card-border-shadow-primary h-100">
-                                  <div class="card-body">
-                                    <div class="d-flex align-items-center mb-2 pb-1">
-                                      <div class="avatar me-2">
-                                        <span class="avatar-initial rounded bg-label-primary"><i class="ti ti-truck ti-md"></i></span>
-                                      </div>
-                                      <h4 class="ms-1 mb-0">42</h4>
-                                    </div>
-                                    <p class="mb-1">On route vehicles</p>
-                                    <p class="mb-0">
-                                      <span class="fw-medium me-1">+18.2%</span>
-                                      <small class="text-muted">than last week</small>
-                                    </p>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="col-lg-3 col-sm-6 mb-4">
-                                <div class="card card-border-shadow-primary h-100">
-                                  <div class="card-body">
-                                    <div class="d-flex align-items-center mb-2 pb-1">
-                                      <div class="avatar me-2">
-                                        <span class="avatar-initial rounded bg-label-primary"><i class="ti ti-truck ti-md"></i></span>
-                                      </div>
-                                      <h4 class="ms-1 mb-0">42</h4>
-                                    </div>
-                                    <p class="mb-1">On route vehicles</p>
-                                    <p class="mb-0">
-                                      <span class="fw-medium me-1">+18.2%</span>
-                                      <small class="text-muted">than last week</small>
-                                    </p>
-                                  </div>
-                                </div>
-                              </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>

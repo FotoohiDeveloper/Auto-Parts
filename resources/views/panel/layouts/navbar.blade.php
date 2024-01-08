@@ -94,10 +94,10 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="{{url('panel/Device/My')}}">
+                                        <a class="dropdown-item" href="{{route('invoices')}}">
                                             <span class="d-flex align-items-center align-middle">
                                                 <i class="flex-shrink-0 ti ti-credit-card me-2 ti-sm"></i>
-                                                <span class="flex-grow-1 align-middle">دستگاه های من</span>
+                                                <span class="flex-grow-1 align-middle">فاکتور های من</span>
                                             </span>
                                         </a>
                                     </li>

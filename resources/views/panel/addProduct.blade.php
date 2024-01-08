@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <title>کربن تجهیز - اضافه کردن دستگاه</title>
+    <title>لوازم یدکی اسما - اضافه کردن قطعه</title>
     @include('panel.layouts.style')
 </head>
 
@@ -20,13 +20,13 @@
                 <div class="content-wrapper">
                     <div class="container-xxl flex-grow-1 container-p-y">
                         <h4 class="py-3 mb-4">
-                            دستگاه
-                            <span class="text-muted fw-light">/ ساخت دستگاه</span>
+                            قطعه
+                            <span class="text-muted fw-light">/ افزودن قطعه</span>
                         </h4>
                         <div class="row fv-plugins-icon-container">
                             <div class="col-md-12">
                                 <div class="card mb-4">
-                                    <h5 class="card-header">ساخت دستگاه</h5>
+                                    <h5 class="card-header">افزودن قطعه</h5>
                                     <hr class="my-0">
                                     <div class="card-body">
                                         @if (session('errors'))
@@ -44,37 +44,51 @@
                                                 <strong>تایید! </strong> {{ session('success') }}
                                             </div>
                                         @endif
-                                        <form id="formAccountSettings" method="POST" action="{{url("panel/Device/Add")}}"
+                                        <form id="formAccountSettings" method="POST" action="{{route('products.add')}}"
                                             class="fv-plugins-bootstrap5 fv-plugins-framework" novalidate="novalidate">
                                             @csrf
                                             <div class="row">
                                                 <div class="mb-3 col-md-6 fv-plugins-icon-container">
-                                                    <label for="firstName" class="form-label">سریال دستگاه</label>
+                                                    <label for="firstName" class="form-label">نام قطعه</label>
                                                     <input class="form-control" type="text" id="firstName"
-                                                        name="serial_number"
+                                                        name="name"
                                                         autofocus="">
                                                     <div
                                                         class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
                                                     </div>
                                                 </div>
                                                 <div class="mb-3 col-md-6 fv-plugins-icon-container">
-                                                    <label for="firstName" class="form-label">نام دستگاه</label>
+                                                    <label for="firstName" class="form-label">توضیحات قطعه</label>
                                                     <input class="form-control" type="text" id="firstName"
-                                                        name="device_name"
+                                                        name="description"
                                                         autofocus="">
                                                     <div
                                                         class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
                                                     </div>
                                                 </div>
                                                 <div class="mb-3 col-md-6 fv-plugins-icon-container">
-                                                    <label for="deviceType" class="form-label">نوع دستگاه</label>
-                                                    <select class="form-control" id="deviceType" name="model_id">
-                                                        <option value="0">Car-T</option>
-                                                        <option value="1">Loggy 100</option>
-                                                        <option value="2">Loggy 400</option>
-                                                        <option value="3">Loggy GPSP</option>
-                                                        <option value="4">GPS</option>
-                                                    </select>
+                                                    <label for="firstName" class="form-label">قیمت</label>
+                                                    <input class="form-control" type="text" id="firstName"
+                                                        name="price"
+                                                        autofocus="">
+                                                    <div
+                                                        class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3 col-md-6 fv-plugins-icon-container">
+                                                    <label for="firstName" class="form-label">برند</label>
+                                                    <input class="form-control" type="text" id="firstName"
+                                                        name="brand"
+                                                        autofocus="">
+                                                    <div
+                                                        class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3 col-md-6 fv-plugins-icon-container">
+                                                    <label for="firstName" class="form-label">رنگ</label>
+                                                    <input class="form-control" type="text" id="firstName"
+                                                        name="color"
+                                                        autofocus="">
                                                     <div
                                                         class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
                                                     </div>
@@ -82,7 +96,7 @@
                                             </div>
                                             <div class="mt-2">
                                                 <button type="submit"
-                                                    class="btn btn-primary me-2 waves-effect waves-light">ذخیره تغییرات</button>
+                                                    class="btn btn-primary me-2 waves-effect waves-light">ذخیره</button>
                                             </div>
                                         </form>
                                     </div>
