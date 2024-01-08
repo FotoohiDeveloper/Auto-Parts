@@ -3,7 +3,7 @@
 ## Laravel Version: 10
 
 ## Introduction
-This is a simple Laravel project for an auto parts store. The project is developed using Laravel version 1.5 and provides basic functionality for managing automotive spare parts.
+This is a simple Laravel project for an auto parts store. The project is developed using Laravel version 10.39.0 and provides basic functionality for managing automotive spare parts.
 
 ## Installation
 
