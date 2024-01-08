@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('address')->collation('utf8_general_ci');
             $table->string('phone_number')->unique();
             $table->string('email')->unique();
+            $table->tinyInteger('role')->default(0)->comment('0 -> Normal User, 1 -> Admin User');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
