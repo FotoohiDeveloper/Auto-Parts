@@ -90,6 +90,32 @@
                     </li>
                 </ul>
             </li>
+            <li class="menu-item" style="">
+                <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <i class="menu-icon tf-icons ti ti-users"></i>
+                    <div data-i18n="مدیریت کاربران">مدیریت کاربران</div>
+                </a>
+                <ul class="menu-sub">
+                    <li class="menu-item">
+                        <a href="{{ route('users') }}" class="menu-link">
+                            <div data-i18n="لیست کاربران">لیست کاربران</div>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="menu-item" style="">
+                <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <i class="menu-icon tf-icons ti ti-file-description"></i>
+                    <div data-i18n="مدیریت فاکتور ها">مدیریت فاکتور ها</div>
+                </a>
+                <ul class="menu-sub">
+                    <li class="menu-item">
+                        <a href="{{ route('invoices.list') }}" class="menu-link">
+                            <div data-i18n="لیست فاکتور ها">لیست فاکتور ها</div>
+                        </a>
+                    </li>
+                </ul>
+            </li>
 
         @endif
         <div class="ps__rail-x" style="left: 0px; bottom: 0px;">

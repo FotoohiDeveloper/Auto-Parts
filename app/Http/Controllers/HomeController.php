@@ -9,6 +9,6 @@ class HomeController extends Controller
 {
     public function show()
     {
-        return view('index');
+        return redirect()->route('login');
     }
 }

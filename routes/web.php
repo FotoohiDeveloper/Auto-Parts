@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\PasswordController;
@@ -68,6 +69,13 @@ Route::middleware('auth')->group(function (){
                 Route::post('/edit/{id}', [ProductController::class, 'update']);
                 Route::get('/delete/{id}', [ProductController::class, 'delete'])->name('products.delete');
             });
+
+            // Show All users
+            Route::get('/users', [AdminController::class, 'users'])->name('users');
+
+            // Show All invoices
+            Route::get('/all-invoices', [AdminController::class, 'invoices'])->name('invoices.list');
+            Route::get('/invoice/{id}/change-status', [AdminController::class, 'changeStatus'])->name('invoices.change');
         });
     });
 

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <title>لوازم یدکی اسما - همه کاربر ها</title>
+    <title>لوازم یدکی اسما - همه محصولات</title>
     @include('panel.layouts.style')
 </head>
 

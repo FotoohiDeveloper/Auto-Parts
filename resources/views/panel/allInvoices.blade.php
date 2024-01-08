@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <title>لوازم یدکی اسما - همه کاربر ها</title>
+    <title>لوازم یدکی اسما - همه فاکتور ها</title>
     @include('panel.layouts.style')
 </head>
 
@@ -22,33 +22,45 @@
 
 
                         <h4 class="py-3 mb-4">
-                            <span class="text-muted fw-light">مدیریت/</span> همه کاربر ها
+                            <span class="text-muted fw-light">مدیریت/</span> همه فاکتور ها
                         </h4>
 
 
                         <div class="card">
-                            <h5 class="card-header">لیست تمام کاربر ها</h5>
+                            <h5 class="card-header">لیست تمام فاکتور ها</h5>
                             <div class="table-responsive text-nowrap">
                                 <table class="table">
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>نام</th>
-                                            <th>نام خانوادگی</th>
-                                            <th>کد ملی</th>
-                                            <th>شماره تماس</th>
-                                            <th>ایمیل</th>
+                                            <th>نام و نام خانوادگی</th>
+                                            <th>نام محصول</th>
+                                            <th>برند محصول</th>
+                                            <th>رنگ محصول</th>
+                                            <th>وضعیت محصول</th>
+                                            <th>تغییر وضعیت</th>
                                         </tr>
                                     </thead>
                                     <tbody class="table-border-bottom-0">
-                                        @foreach ($users as $user)
+                                        @foreach ($invoices as $invoice)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{$user->first_name}}</td>
-                                                <td>{{$user->last_name}}</td>
-                                                <td>{{$user->national_code}}</td>
-                                                <td><a href="tel:{{$user->number}}">{{$user->phone_number}}</a></td>
-                                                <td><a href="mailto:{{ $user->email }}">{{ $user->email }}</a></td>
+                                                <td>{{$invoice->user->first_name . ' ' . $invoice->user->last_name}}</td>
+                                                <td>{{$invoice->product->name}}</td>
+                                                <td>{{$invoice->product->brand}}</td>
+                                                <td>{{$invoice->product->color}}</td>
+                                                <td>
+                                                    @if ($invoice->status == 0)
+                                                        تکمیل نشده
+                                                    @else
+                                                        تکمیل شده
+                                                    @endif
+                                                </td>
+                                                @if ($invoice->status == 0)
+                                                    <td><a href="{{route('invoices.change', [$invoice->id])}}">تغییر وضعیت فاکتور</a></td>
+                                                @else
+                                                    <td>تکمیل شده</td>
+                                                @endif
                                             </tr>
                                         @endforeach
                                     </tbody>

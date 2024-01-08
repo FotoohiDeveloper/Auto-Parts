@@ -42,7 +42,11 @@
                                                 <span class="dropdown-shortcuts-icon rounded-circle mb-2">
                                                     <i class="ti ti-calendar fs-4"></i>
                                                 </span>
-                                                <a href="{{url('panel/Device/My/Add')}}" class="stretched-link">افزودن محصول</a>
+                                                @if (checkRole())
+                                                    <a href="{{ route('products.add') }}"
+                                                        class="stretched-link">افزودن
+                                                        محصول</a>
+                                                @endif
                                                 <small class="text-muted mb-0">لوازم یدکی اسما</small>
                                             </div>
                                         </div>
@@ -57,7 +61,7 @@
                                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     <div class="avatar avatar-online">
-                                        <img src="{{asset('assets/img/avatars/Default.png')}}" alt=""
+                                        <img src="{{ asset('assets/img/avatars/Default.png') }}" alt=""
                                             class="h-auto rounded-circle">
                                     </div>
                                 </a>
@@ -67,12 +71,13 @@
                                             <div class="d-flex">
                                                 <div class="flex-shrink-0 me-3">
                                                     <div class="avatar avatar-online">
-                                                        <img src="{{asset('assets/img/avatars/Default.png')}}" alt=""
-                                                            class="h-auto rounded-circle">
+                                                        <img src="{{ asset('assets/img/avatars/Default.png') }}"
+                                                            alt="" class="h-auto rounded-circle">
                                                     </div>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    <span class="fw-medium d-block">{{auth()->user()->first_name . ' ' . auth()->user()->last_name}}</span>
+                                                    <span
+                                                        class="fw-medium d-block">{{ auth()->user()->first_name . ' ' . auth()->user()->last_name }}</span>
                                                     <small class="text-muted">
                                                         @if (checkRole())
                                                             مدیر
@@ -94,24 +99,24 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="{{route('invoices')}}">
+                                        <a class="dropdown-item" href="{{ route('invoices') }}">
                                             <span class="d-flex align-items-center align-middle">
                                                 <i class="flex-shrink-0 ti ti-credit-card me-2 ti-sm"></i>
                                                 <span class="flex-grow-1 align-middle">فاکتور های من</span>
                                             </span>
                                         </a>
                                     </li>
-                                        <div class="dropdown-divider"></div>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="{{route('logout')}}">
-                                            <i class="ti ti-logout me-2 ti-sm"></i>
-                                            <span class="align-middle">خروج</span>
-                                        </a>
-                                    </li>
-                                </ul>
+                                    <div class="dropdown-divider"></div>
                             </li>
-                            <!--/ User -->
+                            <li>
+                                <a class="dropdown-item" href="{{ route('logout') }}">
+                                    <i class="ti ti-logout me-2 ti-sm"></i>
+                                    <span class="align-middle">خروج</span>
+                                </a>
+                            </li>
+                        </ul>
+                        </li>
+                        <!--/ User -->
                         </ul>
                     </div>
 
