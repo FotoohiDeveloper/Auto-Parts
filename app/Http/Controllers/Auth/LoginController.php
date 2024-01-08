@@ -24,17 +24,17 @@ class LoginController extends Controller
         if ($validate->fails())
         {
             $errors = $validate->getMessageBag();
-            return redirect()->back()->with(['errors' => $errors]);
+            return redirect()->back()->with('errors', $errors);
         }
 
-        if (Auth::attempt([$req]))
+        if (Auth::attempt(['email' => $req['email'],'password' => $req['password']]))
         {
             $request->session()->regenerate();
             return redirect()->route('panel');
         }
 
-        return redirect()->back()->with([
-            'message' => ['ایمیل یا کلمه عبور اشتباه میباشد']
-        ]);
+        return redirect()->back()->with('errors',
+            ['ایمیل یا کلمه عبور اشتباه میباشد']
+        );
     }
 }

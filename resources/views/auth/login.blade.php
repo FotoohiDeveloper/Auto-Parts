@@ -7,14 +7,12 @@
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>کربن تجهیز - ورود</title>
+    <title>لوازم یدکی اسما - ورود</title>
 
 
     <meta name="description" content="Start your development with a Dashboard for Bootstrap 5" />
     <meta name="keywords" content="dashboard, bootstrap 5 dashboard, bootstrap 5 design, bootstrap 5">
     <!-- Canonical SEO -->
-    <link rel="canonical" href="https://1.envato.market/vuexy_admin">
-
     <link rel="icon" type="image/x-icon" href="{{asset('assets/img/logo/logo.png')}}">
 
     <!-- ? PROD Only: Google Tag Manager (Default ThemeSelection: GTM-5DDHKGP, PixInvent: GTM-5J3LMKC) -->
@@ -112,18 +110,23 @@
                                 <span class="app-brand-logo demo">
                                     <img src="{{asset('assets/img/logo/logo.png')}}" alt="Logo" height="32" width="32">
                                 </span>
-                                <span class="app-brand-text demo text-body fw-bold ms-1">کربن تجهیز</span>
+                                <span class="app-brand-text demo text-body fw-bold ms-1">لوازم یدکی اسما</span>
                             </a>
                         </div>
                         <!-- /Logo -->
-                        <h4 class="mb-1 pt-2">به کربن تجهیز خوش آمدید👋</h4>
+                        <h4 class="mb-1 pt-2">به لوازم یدکی اسما خوش آمدید👋</h4>
                         <p class="mb-4">لطفا برای مشاهده حساب خود وارد شوید</p>
-                        @if (session ('error'))
+                        @if (session('errors'))
                             <div class="alert alert-danger">
-                                <strong>خطا! </strong> {{session ('error')}}
+                                <strong>خطا! </strong>
+                                <ul>
+                                    @foreach (session('errors') as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
                             </div>
                         @endif
-                        <form id="formAuthentication" class="mb-3" method="POST" action="{{url('login')}}">
+                        <form id="formAuthentication" class="mb-3" method="POST" action="{{route('login.store')}}">
                             @csrf
                             <div class="mb-3">
                                 <label for="email" class="form-label">ایمیل</label>
@@ -141,9 +144,6 @@
                                     <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
                                 </div>
                             </div>
-                            <div class="mb-3 form-password-toggle">
-                                <div class="g-recaptcha" data-sitekey="6LcX3b8nAAAAAGaLtr1BQA0xROc15hucujzl83cT"></div>
-                            </div>
                             <div class="mb-3">
                                 <button type="submit" class="btn btn-primary d-grid w-100">ورود</button>
                             </div>
@@ -151,7 +151,7 @@
 
                         <p class="text-center">
                             <span>تاکنون حساب نساخته اید ؟</span>
-                            <a href="{{url('register')}}">
+                            <a href="{{route('register')}}">
                                 <span>ساخت حساب کاربری</span>
                             </a>
                         </p>

@@ -23,14 +23,14 @@ class RegisterController extends Controller
             'email' => 'required|email|unique:users,email',
             'national_code' => 'required|string|unique:users,national_code',
             'address' => 'required|string',
-            'phone_number' => 'required|string|nuique:users,phone_number',
+            'phone_number' => 'required|string|unique:users,phone_number',
             'password' => 'required|string',
         ]);
 
         if ($validate->fails())
         {
             $errors = $validate->getMessageBag();
-            return redirect()->back()->with(['errors' => $errors]);
+            return redirect()->back()->with('errors', $errors);
         }
 
         if ($user = User::create($req))
@@ -39,8 +39,6 @@ class RegisterController extends Controller
             return redirect()->route('panel');
         }
 
-        return redirect()->back()->with([
-            'errors' => ['خطایی رخ داد']
-        ]);
+        return redirect()->back()->with('errors', ['خطایی رخ داد']);
     }
 }

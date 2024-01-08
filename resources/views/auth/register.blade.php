@@ -7,7 +7,7 @@
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>کربن تجهیز - ساخت حساب</title>
+    <title>لوازم یدکی اسما - ساخت حساب</title>
 
 
     <meta name="description" content="Start your development with a Dashboard for Bootstrap 5" />
@@ -110,11 +110,11 @@
                                 <span class="app-brand-logo demo">
                                     <img src="{{asset('assets/img/logo/logo.png')}}" alt="Logo" height="32" width="32">
                                 </span>
-                                <span class="app-brand-text demo text-body fw-bold ms-1">کربن تجهیز</span>
+                                <span class="app-brand-text demo text-body fw-bold ms-1">لوازم یدکی اسما</span>
                             </a>
                         </div>
                         <!-- /Logo -->
-                        <h4 class="mb-1 pt-2">به کربن تجهیز خوش آمدید 🚀</h4>
+                        <h4 class="mb-1 pt-2">به لوازم یدکی اسما خوش آمدید👋</h4>
                         <p class="mb-4">اطلاعات خود را به درستی وارد کنید هرگونه مشکل به عهده کاربر میباشد</p>
                         @if (session('errors'))
                             <div class="alert alert-danger">
@@ -131,7 +131,7 @@
                                 <strong>تایید! </strong> {{session ('success')}}
                             </div>
                         @endif
-                        <form id="formAuthentication" class="mb-3" method="POST" action="{{url('register')}}">
+                        <form id="formAuthentication" class="mb-3" method="POST" action="{{route('register.store')}}">
                             @csrf
                             <div class="mb-3">
                                 <label for="first_name" class="form-label">نام</label>
@@ -145,7 +145,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="number" class="form-label">شماره موبایل</label>
-                                <input type="text" class="form-control" id="number" name="number"
+                                <input type="text" class="form-control" id="number" name="phone_number"
                                     placeholder="شماره موبایل خود را وارد کنید">
                             </div>
                             <div class="mb-3">
@@ -157,6 +157,10 @@
                                 <label for="email" class="form-label">ایمیل</label>
                                 <input type="text" class="form-control" id="email" name="email"
                                     placeholder="ایمیل خود را وارد کنید">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">آدرس</label>
+                                <textarea type="text" class="form-control" id="email" name="address" placeholder="آدرس خود را وارد کنید"></textarea>
                             </div>
                             <div class="mb-3 form-password-toggle">
                                 <label class="form-label" for="password">کلمه عبور</label>
