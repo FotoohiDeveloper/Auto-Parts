@@ -1,0 +1,1 @@
+!function(){new Plyr("#plyr-video-player");document.getElementsByClassName("plyr")[0].style.borderRadius="7px";const e=document.getElementsByTagName("html")[0],t=document.querySelector(".stick-top");function n(){e.classList.contains("layout-navbar-fixed")?t.classList.add("course-content-fixed"):t.classList.remove("course-content-fixed")}n(),window.onscroll=function(){n()}}();
