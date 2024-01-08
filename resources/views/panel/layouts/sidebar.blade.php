@@ -44,9 +44,9 @@
                     </a>
                 </li>
             </ul>
-            <li class="menu-item {{ Request::is('Device') ? 'active' : '' }}">
-                <a href="{{ url('panel/CarT/My') }}" class="menu-link">
-                    <div data-i18n="خرید جدید">خرید جدید</div>
+            <li class="menu-item active">
+                <a href="{{ route('products') }}" class="menu-link">
+                    <div data-i18n="ثبت سفارش جدید">ثبت سفارش جدید</div>
                 </a>
             </li>
         </li>
@@ -82,23 +82,13 @@
             </li>
             <li class="menu-item" style="">
                 <a href="javascript:void(0);" class="menu-link menu-toggle">
-                    <i class="menu-icon tf-icons ti ti-settings"></i>
-                    <div data-i18n="مدیریت خرید ها">مدیریت خرید ها</div>
+                    <i class="menu-icon tf-icons ti ti-shopping-cart"></i>
+                    <div data-i18n="مدیریت محصولات">مدیریت محصولات</div>
                 </a>
                 <ul class="menu-sub">
                     <li class="menu-item">
-                        <a href="{{ url('panel/Device/all') }}" class="menu-link">
-                            <div data-i18n="لیست تمام خرید ها">لیست تمام خرید ها</div>
-                        </a>
-                    </li>
-                    <li class="menu-item {{ Request::is('Device') ? 'active' : '' }}">
-                        <a href="{{ url('panel/CarT/All') }}" class="menu-link">
-                            <div data-i18n="مدیریت Car-T">مدیریت Car-T</div>
-                        </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="{{ url('panel/Device/Add') }}" class="menu-link">
-                            <div data-i18n="افزودن دستگاه">افزودن دستگاه</div>
+                        <a href="{{ route('products.list') }}" class="menu-link">
+                            <div data-i18n="لیست محصولات">لیست محصولات</div>
                         </a>
                     </li>
                 </ul>
